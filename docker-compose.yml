@@ -1,19 +1,21 @@
+# Версия в соответствии с движком https://docs.docker.com/compose/compose-file/compose-versioning/
 version: "3.1"
-
+# Волюм для сервера базы данных, требуеться для подключения PhpMyAdmin
 volumes:
   mariadb:
     driver: local
-
+# Мост для работы PhpMyAdmin
 networks:
   db:
     driver: bridge
-
+# Установка PHP + подключение локальной папки
 services:
   php:
     build:
       context: ./
     volumes:
       - './file:/var/www/html'
+# Установка Nginx + подключение локальной папки + конфиг файл
   nginx:
     image: nginx:latest
     ports:
@@ -21,7 +23,7 @@ services:
     volumes:
       - './file:/var/www/html'
       - './file/docker/nginx:/etc/nginx/conf.d'
-
+# Установка базы MariaDb + проброс портов + файлы базы сохраняем в локальной папке проекта
   mariadb:
     image: mariadb:latest
     restart: always
@@ -36,7 +38,7 @@ services:
     networks:
       db:
 
-
+# Установка phpmyadmin
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     restart: always
