@@ -1,13 +1,5 @@
 # Версия в соответствии с движком https://docs.docker.com/compose/compose-file/compose-versioning/
 version: "3.1"
-# Волюм для сервера базы данных, требуеться для подключения PhpMyAdmin
-volumes:
-  mariadb:
-    driver: local
-# Мост для работы PhpMyAdmin
-networks:
-  db:
-    driver: bridge
 # Установка PHP + подключение локальной папки
 services:
   php:
@@ -35,8 +27,6 @@ services:
       - "3306:3306"
     volumes:
       - ./my-db:/var/lib/mysql
-    networks:
-      db:
 
 # Установка phpmyadmin
   phpmyadmin:
@@ -49,6 +39,4 @@ services:
     environment:
       - PMA_HOST=mariadb
       - PMA_PORT=3306
-    networks:
-      db:
 

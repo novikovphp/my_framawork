@@ -1,5 +1,3 @@
 <?php
-echo 34564;
-phpinfo();
-$connect = mysqli_connect('mysql','root', "root", );
+$connect = mysqli_connect('mariadb','root', 'root');
 var_dump($connect);
