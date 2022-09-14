@@ -3,13 +3,14 @@ version: "3.1"
 # Установка PHP + подключение локальной папки
 services:
   php:
-    build:
-      context: ./
+    build: ./dockerfiles/php
     volumes:
       - './file:/var/www/html'
+    ports:
+      - 9000:9000
 # Установка Nginx + подключение локальной папки + конфиг файл
   nginx:
-    image: nginx:latest
+    build: ./dockerfiles/nginx
     ports:
       - 80:80
     volumes:
@@ -17,6 +18,7 @@ services:
       - './file/docker/nginx/conf.d:/etc/nginx/conf.d'
       - './file/docker/nginx/sites-available:/etc/nginx/sites-available'
       - './file/docker/nginx/sites-enabled:/etc/nginx/sites-enabled'
+
 # Установка базы MariaDb + проброс портов + файлы базы сохраняем в локальной папке проекта
   mariadb:
     image: mariadb:latest

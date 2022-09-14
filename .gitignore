@@ -1,3 +1,6 @@
 /my-db/mysql.sock
 /my-db/ib_logfile0
 /.idea
+/my-db/ddl_recovery.log
+/my-db/ib_buffer_pool
+*.log
