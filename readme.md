@@ -4,6 +4,8 @@
 3. MariaDb
 4. PhpMyAdmin
 
-Для одного домена
+Для одного домена с установленным Wordpress
+User: admin
+Password: kYkn@txTeknO(bE5qe
 
 Сохранение базы данных при остановке контейнеров предусмотрено. 
