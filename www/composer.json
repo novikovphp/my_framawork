@@ -1,0 +1,12 @@
+{
+    "name": "web/app",
+    "autoload": {
+        "psr-4": {
+            "Controller\\System\\": "catalog/controller/system",
+            "Model\\System\\": "catalog/model/system"
+        }
+    },
+    "require": {
+        "ext-mysqli": "*"
+    }
+}
